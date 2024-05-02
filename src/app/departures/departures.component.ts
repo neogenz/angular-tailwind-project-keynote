@@ -8,8 +8,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
         CommonModule,
     ],
     template: `
-        <div class="container">
-            <div class="header subgrid">
+        <div class="container bg-opacity-65 bg-white sm:rounded-xl grid grid-cols-[auto_1fr_auto_auto] gap-2 sm:grid-cols-[1fr_8fr_1fr_1fr]">
+            <div class="font-bold uppercase grid grid-cols-subgrid col-span-full border-b-[1px] border-black p-3">
                 <div class="line-header">
                     Ligne
                 </div>
@@ -24,7 +24,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
                 </div>
             </div>
             @for (item of items; track item.id) {
-                <div class="departure subgrid">
+                <div class="departure grid grid-cols-subgrid col-span-full px-3 items-center border-b-[1px] border-gray-400 last:border-0">
                     <div class="line">
                         {{item.line}}
                     </div>
@@ -46,7 +46,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
             }
         </div>
     `,
-    styleUrl: './departures.component.css',
+    styles: [`
+        :host {
+            @apply w-full;
+        }
+    `],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeparturesComponent {
